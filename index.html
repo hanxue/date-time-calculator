@@ -9,7 +9,12 @@
         <link rel="stylesheet" href="styles.css">
         <script defer src="https://unpkg.com/material-design-lite@1.3.0/dist/material.min.js"></script>
         <script defer src="https://unpkg.com/moment@latest/min/moment.min.js"></script>
+        <script defer src="https://unpkg.com/clipboard@latest/dist/clipboard.min.js"></script>
         <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var clipboard = new Clipboard('.copy-button')
+            })
+
             function calculateDate() {
                 var from_date = moment(document.getElementById("date_from").value)
                 var to_date = moment(document.getElementById("date_to").value)
@@ -56,6 +61,10 @@
                             <div class="mdl-textfield mdl-js-textfield">
                             <input class="mdl-textfield__input" type="text" id="result">
                             </div>
+                            <button class="copy-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+                                data-clipboard-action="copy" data-clipboard-target="#result">
+                                <i class="material-icons">content_copy</i> Copy to Clipboard
+                            </button>
                         </form>
                     </div>
             </div>
