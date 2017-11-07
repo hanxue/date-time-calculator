@@ -18,6 +18,11 @@
                 var result = moment.duration(diff).asSeconds()
                 document.getElementById("result").value = result
             }
+            function swapDates() {
+                var from_date = moment(document.getElementById("date_from").value)
+                document.getElementById("date_from").value = moment(document.getElementById("date_to").value)
+                document.getElementById("date_to").value = from_date
+            }
         </script>
     </head>
     <body>
@@ -34,6 +39,9 @@
                             <input class="mdl-textfield__input" type="text" id="date_from">
                             <label class="mdl-textfield__label" for="date_from">From Date/Time</label>
                           </div>
+                          <button class="mdl-button mdl-js-button mdl-js-ripple-effect" onclick="swapDates()">
+                                <i class="material-icons">swap_horiz</i>
+                          </button>
                           <div class="mdl-textfield mdl-js-textfield">
                             <input class="mdl-textfield__input" type="text" id="date_to">
                             <label class="mdl-textfield__label" for="date_to">To Date/Time</label>
