@@ -10,8 +10,15 @@
         <script defer src="https://unpkg.com/material-design-lite@1.3.0/dist/material.min.js"></script>
         <script defer src="https://unpkg.com/moment@latest/min/moment.min.js"></script>
         <script defer src="https://unpkg.com/clipboard@latest/dist/clipboard.min.js"></script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109302822-1"></script>
         <script>
             document.addEventListener("DOMContentLoaded", function() {
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+
+                gtag('config', 'UA-109302822-1');
                 var clipboard = new Clipboard('.copy-button')
             })
 
@@ -22,11 +29,22 @@
                 var diff = to_date.diff(from_date)
                 var result = moment.duration(diff).asSeconds()
                 document.getElementById("result").value = result
+                ga('send', 'event', 'Date', 'calculate', 'Calculate Date')
+                date_values = document.getElementById("date_from").value + "|" +
+                            document.getElementById("date_to").value + "|" +
+                            result
+                ga('send', 'event', 'Date', 'input', date_values)
             }
+
             function swapDates() {
                 var from_date = moment(document.getElementById("date_from").value)
                 document.getElementById("date_from").value = moment(document.getElementById("date_to").value)
                 document.getElementById("date_to").value = from_date
+                ga('send', 'event', 'Date', 'swap', 'Swap Date')
+            }
+
+            function copyToClipboard() {
+                ga('send', 'event', 'Date', 'copy', 'Copy To Clipboard')
             }
         </script>
     </head>
@@ -62,7 +80,7 @@
                             <input class="mdl-textfield__input" type="text" id="result">
                             </div>
                             <button class="copy-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
-                                data-clipboard-action="copy" data-clipboard-target="#result">
+                                data-clipboard-action="copy" data-clipboard-target="#result" onclick="copyToClipboard()">
                                 <i class="material-icons">content_copy</i> Copy to Clipboard
                             </button>
                         </form>
