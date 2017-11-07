@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Javascript Date / Time Calculator - Hanxue</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://unpkg.com/material-design-lite@latest/dist/material.indigo-pink.min.css">
+        <link rel="stylesheet" href="styles.css">
+        <script defer src="https://unpkg.com/material-design-lite@1.3.0/dist/material.min.js"></script>
+    </head>
+    <body>
+        <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+            <div class="mdl-layout__header-row">
+                <span class="mdl-layout-title">Javascript Date/Time Calculator</span>
+                <div class="mdl-layout-spacer"></div>
+        </header>
+        <main class="mdl-layout__content mdl-color--grey-100">
+                <div class="mdl-grid demo-content">
+                    <div class="input-section mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+                        <form action="#">
+                          <div class="mdl-textfield mdl-js-textfield">
+                            <input class="mdl-textfield__input" type="text" id="date_from">
+                            <label class="mdl-textfield__label" for="date_from">From Date/Time</label>
+                          </div>
+                          <div class="mdl-textfield mdl-js-textfield">
+                            <input class="mdl-textfield__input" type="text" id="date_tp">
+                            <label class="mdl-textfield__label" for="date_to">To Date/Time</label>
+                          </div>
+                          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                            Calculate
+                          </button>
+                        </form>
+                    </div>
+                    <div class="output-section mdl-color--gray mdl-shadow--4dp mdl-cell mdl-cell--12-col mdl-grid">
+                        <form action="#">
+                            <div class="mdl-textfield mdl-js-textfield">
+                            <input class="mdl-textfield__input" type="text" id="result">
+                            <label class="mdl-textfield__label" for="result">Result</label>
+                            </div>
+                        </form>
+                    </div>
+            </div>
+        </main>
+    </body>
+</html>
